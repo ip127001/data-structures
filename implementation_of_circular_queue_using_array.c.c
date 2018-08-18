@@ -21,7 +21,7 @@ bool isEmpty()
 
 bool isFull()
 {
-    if (rear == MAX_SIZE - 1)
+    if ((rear + 1) % MAX_SIZE == front)
     {
         return true;
     }
@@ -45,7 +45,7 @@ void enQueue(int data)
     }
     else
     {
-        rear = rear + 1;
+        rear = (rear + 1) % MAX_SIZE;
     }
     arr[rear] = data;
 
@@ -66,7 +66,7 @@ void deQueue()
     }
     else
     {
-        front = front + 1;
+        front = (front + 1) % MAX_SIZE;
     }
 
     return;
@@ -74,7 +74,7 @@ void deQueue()
 
 void printQueue()
 {
-    for (int i = front; i <= rear; i++)
+    for (int i = front; i < rear; i++)
     {
         printf("%d ", arr[i]);
     }
@@ -88,8 +88,14 @@ int main()
     enQueue(30);
     enQueue(40);
     enQueue(50);
+    enQueue(60);
+    enQueue(70);
+    enQueue(80);
+    enQueue(90);
+    enQueue(100);
     printQueue();
 
+    deQueue();
     deQueue();
     printQueue();
 
