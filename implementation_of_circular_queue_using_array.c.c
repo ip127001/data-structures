@@ -74,10 +74,11 @@ void deQueue()
 
 void printQueue()
 {
-    for (int i = front; i < rear; i++)
+    for (int i = front; i <= rear; i++)
     {
         printf("%d ", arr[i]);
     }
+    printf("\n %d %d", front, rear);
 }
 
 int main()
@@ -93,7 +94,10 @@ int main()
     enQueue(80);
     enQueue(90);
     enQueue(100);
+    enQueue(110);
     printQueue();
+
+    printf("\n");
 
     deQueue();
     deQueue();
